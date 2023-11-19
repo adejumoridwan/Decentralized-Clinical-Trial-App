@@ -1,2 +1,6 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<div class="d-flex justify-content-around">
+  <a href="/researcher"
+    ><button type="button" class="btn btn-primary">Researcher</button></a
+  >
+  <button type="button" class="btn btn-success">Paticipant</button>
+</div>
