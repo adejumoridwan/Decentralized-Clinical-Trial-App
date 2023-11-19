@@ -1,5 +1,5 @@
-2023/11/19-07:51:09.844 4cd0 Recovering log #25
-2023/11/19-07:51:09.844 4cd0 Level-0 table #27: started
-2023/11/19-07:51:09.845 4cd0 Level-0 table #27: 1414 bytes OK
-2023/11/19-07:51:09.854 4cd0 Delete type=0 #25
-2023/11/19-07:51:09.855 4cd0 Delete type=3 #23
+2023/11/19-22:56:53.635 eac Recovering log #28
+2023/11/19-22:56:53.635 eac Level-0 table #30: started
+2023/11/19-22:56:53.637 eac Level-0 table #30: 1414 bytes OK
+2023/11/19-22:56:53.658 eac Delete type=0 #28
+2023/11/19-22:56:53.658 eac Delete type=3 #26
