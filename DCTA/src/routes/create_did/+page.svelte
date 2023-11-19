@@ -8,10 +8,12 @@
 
   import { Web5 } from "@web5/api";
 
-  let userDid;
+  let userDID;
 
   onMount(async () => {
     const { web5, did: userDid } = await Web5.connect();
+    userDID = userDid
+    console.log(userDID)
   });
 
   const copyToClipboard = async () => {
@@ -26,8 +28,8 @@
 
 <main>
   <h1>Your User DID</h1>
-  {#if userDid}
-    <p>{userDid}</p>
+  {#if userDID}
+    <p>{userDID}</p>
     <button on:click={copyToClipboard}>Copy DID</button>
   {/if}
 </main>
