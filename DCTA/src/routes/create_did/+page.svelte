@@ -1,20 +1,27 @@
 <script>
-  import { webcrypto } from "node:crypto";
   import { onMount } from "svelte";
-
-  if (!globalThis.crypto) {
-    globalThis.crypto = webcrypto;
-  }
-
-  import { Web5 } from "@web5/api";
+  import { Web5 } from "@web5/api/browser";
 
   let userDID;
+  let isLoading = true;
 
-  onMount(async () => {
-    const { web5, did: userDid } = await Web5.connect();
-    userDID = userDid
-    console.log(userDID)
-  });
+  const loadUserDID = async () => {
+    try {
+      // Simulate a 20-second delay
+      await new Promise((resolve) => setTimeout(resolve, 100));
+
+      const { web5, did: loadedUserDid } = await Web5.connect();
+      console.log("Connected to Web5:", web5);
+      console.log("User DID:", loadedUserDid);
+      userDID = loadedUserDid;
+    } catch (error) {
+      console.error("Error loading DID", error);
+    } finally {
+      isLoading = false;
+    }
+  };
+
+  onMount(loadUserDID);
 
   const copyToClipboard = async () => {
     try {
@@ -27,9 +34,11 @@
 </script>
 
 <main>
-  <h1>Your User DID</h1>
-  {#if userDID}
-    <p>{userDID}</p>
-    <button on:click={copyToClipboard}>Copy DID</button>
+  {#if isLoading}
+    <p>Loading...</p>
+  {:else}
+    <button type="button" class="btn btn-primary" on:click={copyToClipboard}
+      >Copy DID</button
+    >
   {/if}
 </main>
